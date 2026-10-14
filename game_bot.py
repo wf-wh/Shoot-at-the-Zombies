@@ -935,6 +935,15 @@ class GameBot:
                     # time.sleep(0.1)
                     # return None
 
+         #全部都是模板中没有的技能，点击画面中间（默认选择中间的技能）  by WF      
+        if not self.game_window:
+            if not self.find_game_window():
+                return
+        left, top, width, height = self.game_window
+        center_x = left + width // 2
+        center_y = top + height // 2
+        self.click(center_x,center_y)
+        
         return None
 
     def find_battling(self):
